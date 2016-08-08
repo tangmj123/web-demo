@@ -41,7 +41,8 @@ public class CacheAspect {
 	@Pointcut("execution(public * com.tangmj.demo.service.impl.*.query*Id(Integer||int))")
 	public void queryById(){}
 	
-	@Around("(cachableOnMethod()&&@annotation(cache))||(cachableOnType()&&@within(cache)) &&(getById()||queryById())")
+	@Around("(cachableOnMethod()&&@annotation(cache))||((cachableOnType()&&@within(cache))&&(getById()||queryById()))")//
+	//bug: cache参数始终是加在类上的
 	public Object cachable(ProceedingJoinPoint pjp,Cachable cache) {
 //		String key = getcacheKey(pjp,cache);
 		String key = getCacheKey(pjp);

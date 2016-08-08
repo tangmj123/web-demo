@@ -40,7 +40,7 @@
 			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
 		</property>
 		<property name="valueSerializer">
-			<bean class="com.tangmj.base4j.redis.ObjectRedisSerializer"/>
+			<bean class="com.tangmj.demo.redis.ObjectRedisSerializer"/>
 		</property>
 	</bean>
 

@@ -131,10 +131,10 @@
 			</array>
 		</property>
 		<property name="configLocation" value="classpath:mybatis.xml" />
-		<property name="typeAliasesPackage" value="com.tangmj.base4j.dao.model" />
+		<property name="typeAliasesPackage" value="com.tangmj.demo.dao.model" />
 	</bean>
 
-	<bean id="dataSource" class="com.tangmj.base4j.datasource.RoutingDataSource"
+	<bean id="dataSource" class="com.tangmj.demo.datasource.RoutingDataSource"
 		>
 		<description>数据源</description>
 		<property name="targetDataSources">
@@ -149,7 +149,7 @@
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.tangmj.base4j.dao.mapper" />
+		<property name="basePackage" value="com.tangmj.demo.dao.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 
