@@ -29,16 +29,16 @@ public class CacheAspect {
 	@Autowired
 	private RedisTemplate<String,Object> redisTemplate ;
 	
-	@Pointcut("@within(com.tangmj.base4j.cache.Cachable)")
+	@Pointcut("@within(com.tangmj.demo.cache.Cachable)")
 	public void cachableOnType(){}
 	
-	@Pointcut("@annotation(com.tangmj.base4j.cache.Cachable)")
+	@Pointcut("@annotation(com.tangmj.demo.cache.Cachable)")
 	public void cachableOnMethod(){}
 	
-	@Pointcut("execution(public * com.tangmj.base4j.service.impl.*.get*Id(Integer||int))")
+	@Pointcut("execution(public * com.tangmj.demo.service.impl.*.get*Id(Integer||int))")
 	public void getById(){}
 	
-	@Pointcut("execution(public * com.tangmj.base4j.service.impl.*.query*Id(Integer||int))")
+	@Pointcut("execution(public * com.tangmj.demo.service.impl.*.query*Id(Integer||int))")
 	public void queryById(){}
 	
 	@Around("(cachableOnMethod()&&@annotation(cache))||(cachableOnType()&&@within(cache)) &&(getById()||queryById())")
@@ -78,7 +78,7 @@ public class CacheAspect {
 //	}
 	
 	
-	@Pointcut("execution(public * com.tangmj.base4j.service.impl.*.update*(*))")
+	@Pointcut("execution(public * com.tangmj.demo.service.impl.*.update*(*))")
 	public void update(){}
 	
 	@After("update()")

@@ -25,7 +25,7 @@ public class DataSourceAspect {
 	@Value("#{'${readMethods}'.split(',')}")
 	private List<String> readMethods;
 	
-	@Pointcut("execution(* com.tangmj.base4j.service.impl..*.*(..))")
+	@Pointcut("execution(* com.tangmj.demo.service.impl..*.*(..))")
 	public void aspect(){}
 	
 	@Before("aspect()")
