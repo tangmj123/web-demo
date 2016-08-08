@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<classPathEntry location="J:/repository/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar" />  
+    <context id="default" targetRuntime="MyBatis3" defaultModelType="flat">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/> -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="com.tangmj.demo.mybatis.plugin.PaginationPlugin"/>
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+                        connectionURL="jdbc:mysql://localhost:3306/base4j?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"
+                        userId="root" password="root">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成Bean 和XXXExample -->
+        <javaModelGenerator targetPackage="com.tangmj.demo.dao.model" targetProject="web-demo">
+            <property name="constructorBased" value="false"/>
+            <property name="useActualColumnNames" value="true" />
+            <property name="enableSubPackages" value="false"/>
+            <property name="immutable" value="false"/>
+            <property name="trimStrings" value="true"/>
+            <!-- <property name="rootClass" value=""/>指定bean的父类  -->
+        </javaModelGenerator>
+        <!-- 生成 XXX.xml -->
+        <sqlMapGenerator targetPackage="mapper.generator" targetProject="web-demo/src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!-- 生成XXXMapper -->
+        <javaClientGenerator targetPackage="com.tangmj.demo.dao.mapper" targetProject="web-demo" type="XMLMAPPER">
+            <property name="enableSubPackages" value=""/>
+            <property name="methodNameCalculator" value=""/>
+            <property name="rootInterface" value=""/> 
+        </javaClientGenerator> 
+        <table tableName="sys_dic" domainObjectName="Dic">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+       <table tableName="sys_dic_index" domainObjectName="DicIndex">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+         <table tableName="sys_performance" domainObjectName="Performance">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+         <table tableName="t_dept" domainObjectName="Dept">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+         <table tableName="t_permission" domainObjectName="Permission">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+         <table tableName="t_role" domainObjectName="Role">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+         <table tableName="t_role_permission" domainObjectName="RolePermission">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+         <table tableName="t_user" domainObjectName="User">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+         <table tableName="t_user_role" domainObjectName="UserRole">
+        	<!-- 返回id -->
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
+    </context>
+</generatorConfiguration>
