@@ -20,10 +20,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
-@Component
-@Aspect
-@EnableAspectJAutoProxy
-@Order(0)
+//@Component
+//@Aspect
+//@EnableAspectJAutoProxy
+//@Order(0)
 public class CacheAspect {
 	private final Logger LOGGER =  LoggerFactory.getLogger(CacheAspect.class);
 	@Autowired

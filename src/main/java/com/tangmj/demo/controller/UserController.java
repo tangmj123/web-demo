@@ -37,4 +37,21 @@ public class UserController {
 		userService.save(record);
 		return record;
 	}
+	
+	@RequestMapping("save")
+	@ResponseBody
+	public void saveUser(int size){
+		for(int i=0;i<size;i++){
+			User record = new User();
+			record.setAccount("1056617205@qq.com"+i);
+			record.setCreateTime(new Date());
+			record.setDeptId(1);
+			record.setMail("18721709753@163.com");
+			record.setPassword("admin");
+			record.setPhone("18721709753");
+			record.setSex(0);
+			record.setUserType(0);
+			userService.save(record);
+		}
+	}
 }

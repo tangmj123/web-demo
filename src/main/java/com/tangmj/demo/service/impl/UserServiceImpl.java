@@ -7,18 +7,21 @@ import org.springframework.transaction.annotation.Transactional;
 import com.tangmj.demo.cache.Cachable;
 import com.tangmj.demo.dao.mapper.UserMapper;
 import com.tangmj.demo.dao.model.User;
+import com.tangmj.demo.message.MessageSender;
 import com.tangmj.demo.service.IUserService;
 @Transactional
 @Service
 @Cachable(expire=1000)
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements IUserService{
 
 	@Autowired private UserMapper userMapper;
 	
+	@Autowired private MessageSender<User> messageSender;
 	
 	@Override
 	public User save(User record) {
-		userMapper.insertSelective(record);
+		if(!messageSender.send(record))
+			userMapper.insertSelective(record);
 		return record;
 	}
 
